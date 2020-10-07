@@ -1,0 +1,20 @@
+{
+    "subscriptionId": "5206f269-120b-41ef-a95b-0dce7109de61",
+    "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    "msal": {
+        "auth":{
+            "clientId": "f7a4a200-aa92-4cad-91f2-34d2db4fccc0",
+            "authority": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47",
+            "redirectUri": "http://localhost:8090"
+        },
+        "cache": {
+            "cacheLocation": "sessionStorage",
+            "storeAuthStateInCookie": false
+        }
+    },
+    "authParams": {
+        "scopes": [
+            "https://graph.windows.net/.default"
+        ]
+    }
+}

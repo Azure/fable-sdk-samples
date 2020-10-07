@@ -1,0 +1,18 @@
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts/";
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+$primary: #0078d7;
+$primary-invert: rgb(29, 29, 29);
+
+@import '~bulma/bulma';
+
+nav.navbar {
+    border-top: 4px solid #276cda;
+    margin-bottom: 1rem;
+}
+.navbar-item.brand-text {
+    font-weight: 300;
+}

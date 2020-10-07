@@ -1,14 +1,18 @@
-# Project
+# Fable Azure SDKs
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+Sample Fable bindings generation for Azure SDKs and a sample [elmsih](https://elmish.github.io/) application that uses them.
 
-As the maintainer of this project, please make a few updates:
+### Pre-requisites
+- .NET SDK 3.1
+- [`node`](https://nodejs.org/)
+- [`yarn`](https://yarnpkg.com/)
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+### Building and running
+- Check out the SDK and frontend READMEs
+- `dotnet tool restore` (once)
+- `dotnet fake build` to build or
+- `dotnet fake built -t start` to start, then open `http://localhost:8090` in a browser to open the sample
+
 
 ## Contributing
 

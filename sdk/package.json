@@ -1,0 +1,20 @@
+{
+  "name": "fable-azure-sdk",
+  "version": "0.0.1",
+  "description": "Azure SDK for Fable",
+  "scripts": {
+    "extract-all": "node extract.js",
+    "gen-msal": "ts2fable temp/fable-azure-msal.d.ts src/Msal.Import.fs",
+    "gen-msrest": "ts2fable temp/fable-azure-msrest.d.ts src/MsRest.Import.fs",
+    "gen-graph": "ts2fable temp/fable-azure-graph.d.ts src/Graph.Import.fs"
+  },
+  "private": true,
+  "dependencies": {
+    "@azure/graph": "^5.0.1",
+    "@azure/msal-browser": "^2.3.0"
+  },
+  "devDependencies": {
+    "@microsoft/api-extractor": "7.8.2-pr1796.0",
+    "ts2fable": "^0.7.1"
+  }
+}

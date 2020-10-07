@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="src\Msal.Import.fs" />
+    <Compile Include="src\MsRest.Import.fs" />
+    <Compile Include="src\Graph.Import.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.7.*" />
+    <PackageReference Include="Fable.Core" Version="3.*" />
+    <PackageReference Include="Fable.Fetch" Version="2.0.*" />
+  </ItemGroup>
+</Project>

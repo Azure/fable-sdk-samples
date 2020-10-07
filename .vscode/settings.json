@@ -1,0 +1,11 @@
+{
+    "plantuml.exportFormat": "svg",
+    "plantuml.exportSubFolder": false,
+    "plantuml.diagramsRoot": "doc/diagrams",
+    "plantuml.exportOutDir": "doc/img",
+    "azureFunctions.deploySubpath": "backend/bin/Release/netcoreapp3.1/publish",
+    "azureFunctions.projectLanguage": "F#",
+    "azureFunctions.projectRuntime": "~3",
+    "debug.internalConsoleOptions": "neverOpen",
+    "azureFunctions.preDeployTask": "publish"
+}

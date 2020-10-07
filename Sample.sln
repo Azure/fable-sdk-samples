@@ -1,0 +1,58 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{91CAD23C-686B-4AE1-8075-40CE069A6ED9}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+	build.fsx = build.fsx
+EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Frontend", "frontend\src\Frontend.fsproj", "{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fable.Azure.Sdk", "sdk\Fable.Azure.Sdk.fsproj", "{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Debug|x64.Build.0 = Debug|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Debug|x86.Build.0 = Debug|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Release|x64.ActiveCfg = Release|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Release|x64.Build.0 = Release|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Release|x86.ActiveCfg = Release|Any CPU
+		{DB2DB8D5-02E0-4E4B-8B80-4B07096E2E54}.Release|x86.Build.0 = Release|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Debug|x64.Build.0 = Debug|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Debug|x86.Build.0 = Debug|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Release|x64.ActiveCfg = Release|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Release|x64.Build.0 = Release|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Release|x86.ActiveCfg = Release|Any CPU
+		{E5F023AF-048A-4C2B-9514-8DF9F100A0DF}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EA50EB5C-3A7E-40EE-8EAE-8BC70BFDC380}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal

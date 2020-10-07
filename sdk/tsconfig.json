@@ -1,0 +1,6 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "Node"
+    },
+    "include": ["../node_modules/@azure"]
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Prelude.fs" />
+    <Compile Include="Types.fs" />
+    <Compile Include="Commands.fs" />
+    <Compile Include="View.fs" />
+    <Compile Include="App.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../sdk/Fable.Azure.Sdk.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Elmish" Version="3.0.6" />
+    <PackageReference Include="Fable.Elmish.React" Version="3.0.1" />
+    <PackageReference Include="Fable.Browser.Dom" Version="1.2.0" />
+    <PackageReference Include="Fable.Browser.Blob" Version="1.1.0" />
+    <PackageReference Include="Fable.Browser.Url" Version="1.0.0" />
+    <PackageReference Include="Fable.Elmish.Browser" Version="3.0.4" />
+    <PackageReference Include="Fable.Elmish.HMR" Version="4.0.1" />
+    <PackageReference Include="Fable.FontAwesome" Version="2.0.0" />
+    <PackageReference Include="Fable.FontAwesome.Free" Version="2.1.0" />
+    <PackageReference Include="Fulma" Version="2.8.1" />
+    <PackageReference Include="Thoth.Json" Version="4.1.0" />
+  </ItemGroup>
+  
+</Project>
