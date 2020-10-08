@@ -1,6 +1,6 @@
 # Fable Azure SDKs
 
-Sample Fable bindings generation for Azure SDKs and a sample [elmsih](https://elmish.github.io/) application that uses them.
+Sample Fable bindings generation for Azure SDKs and a sample [elmish](https://elmish.github.io/) application that uses them.
 
 ### Pre-requisites
 - .NET SDK 3.1
@@ -11,7 +11,7 @@ Sample Fable bindings generation for Azure SDKs and a sample [elmsih](https://el
 - Check out the SDK and frontend READMEs
 - `dotnet tool restore` (once)
 - `dotnet fake build` to build or
-- `dotnet fake built -t start` to start, then open `http://localhost:8090` in a browser to open the sample
+- `dotnet fake built -t start` to start the local server, then open `http://localhost:8090` in a browser to open the sample
 
 
 ## Contributing

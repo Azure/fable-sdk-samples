@@ -77,6 +77,16 @@ type [<AllowNullLiteral>] IExports =
     abstract SignedInUser: SignedInUserStatic
     abstract Users: UsersStatic
 
+type HttpResponseBody<'t> =
+    inherit HttpResponse
+    /// The response body as text (string format)
+    abstract bodyAsText: string with get, set
+    /// The response body as parsed JSON or XML
+    abstract parsedBody: Application with get, set
+
+type [<AllowNullLiteral>] HttpResponse<'t> = 
+    abstract _response: HttpResponseBody<'t>
+
 /// Request parameters for adding a owner to an application.
 type [<AllowNullLiteral>] AddOwnerParameters =
     /// A owner object URL, such as
@@ -480,23 +490,23 @@ type [<AllowNullLiteral>] ApplicationsStatic =
 
 type [<AllowNullLiteral>] ApplicationsCreateResponse =
     inherit Application
-    inherit HttpResponse
+    inherit HttpResponse<ApplicationsCreateResponse>
 
 type [<AllowNullLiteral>] ApplicationsGetResponse =
     inherit Application
-    inherit HttpResponse
+    inherit HttpResponse<ApplicationsGetResponse>
 
 type [<AllowNullLiteral>] ApplicationsGetServicePrincipalsIdByAppIdResponse =
     inherit ServicePrincipalObjectResult
-    inherit HttpResponse
+    inherit HttpResponse<ApplicationsGetServicePrincipalsIdByAppIdResponse>
 
 type [<AllowNullLiteral>] ApplicationsListKeyCredentialsResponse =
     inherit KeyCredentialListResult
-    inherit HttpResponse
+    inherit HttpResponse<ApplicationsListKeyCredentialsResponse>
 
 type [<AllowNullLiteral>] ApplicationsListNextResponse =
     inherit ApplicationListResult
-    inherit HttpResponse
+    inherit HttpResponse<ApplicationsListNextResponse>
 
 /// Optional Parameters.
 type [<AllowNullLiteral>] ApplicationsListOptionalParams =
@@ -506,19 +516,19 @@ type [<AllowNullLiteral>] ApplicationsListOptionalParams =
 
 type [<AllowNullLiteral>] ApplicationsListOwnersNextResponse =
     inherit DirectoryObjectListResult
-    inherit HttpResponse
+    inherit HttpResponse<ApplicationsListOwnersNextResponse>
 
 type [<AllowNullLiteral>] ApplicationsListOwnersResponse =
     inherit DirectoryObjectListResult
-    inherit HttpResponse
+    inherit HttpResponse<ApplicationsListOwnersResponse>
 
 type [<AllowNullLiteral>] ApplicationsListPasswordCredentialsResponse =
     inherit PasswordCredentialListResult
-    inherit HttpResponse
+    inherit HttpResponse<ApplicationsListPasswordCredentialsResponse>
 
 type [<AllowNullLiteral>] ApplicationsListResponse =
     inherit ApplicationListResult
-    inherit HttpResponse
+    inherit HttpResponse<ApplicationsListResponse>
 
 /// Request parameters for updating a new application.
 type [<AllowNullLiteral>] ApplicationUpdateParameters =
@@ -623,7 +633,7 @@ type [<AllowNullLiteral>] DeletedApplicationsStatic =
 
 type [<AllowNullLiteral>] DeletedApplicationsListNextResponse =
     inherit ApplicationListResult
-    inherit HttpResponse
+    inherit HttpResponse<DeletedApplicationsListNextResponse>
 
 /// Optional Parameters.
 type [<AllowNullLiteral>] DeletedApplicationsListOptionalParams =
@@ -633,11 +643,11 @@ type [<AllowNullLiteral>] DeletedApplicationsListOptionalParams =
 
 type [<AllowNullLiteral>] DeletedApplicationsListResponse =
     inherit ApplicationListResult
-    inherit HttpResponse
+    inherit HttpResponse<DeletedApplicationsListResponse>
 
 type [<AllowNullLiteral>] DeletedApplicationsRestoreResponse =
     inherit Application
-    inherit HttpResponse
+    inherit HttpResponse<DeletedApplicationsRestoreResponse>
 
 /// Represents an Azure Active Directory object.
 type [<AllowNullLiteral>] DirectoryObject =
@@ -709,7 +719,7 @@ type [<AllowNullLiteral>] DomainsStatic =
 
 type [<AllowNullLiteral>] DomainsGetResponse =
     inherit Domain
-    inherit HttpResponse
+    inherit HttpResponse<DomainsGetResponse>
 
 /// Optional Parameters.
 type [<AllowNullLiteral>] DomainsListOptionalParams =
@@ -719,7 +729,7 @@ type [<AllowNullLiteral>] DomainsListOptionalParams =
 
 type [<AllowNullLiteral>] DomainsListResponse =
     inherit DomainListResult
-    inherit HttpResponse
+    inherit HttpResponse<DomainsListResponse>
 
 /// Request parameters for the GetObjectsByObjectIds API.
 type [<AllowNullLiteral>] GetObjectsParameters =
@@ -1007,31 +1017,31 @@ type [<AllowNullLiteral>] GroupsStatic =
 
 type [<AllowNullLiteral>] GroupsCreateResponse =
     inherit ADGroup
-    inherit HttpResponse
+    inherit HttpResponse<GroupsCreateResponse>
 
 type [<AllowNullLiteral>] GroupsGetGroupMembersNextResponse =
     inherit DirectoryObjectListResult
-    inherit HttpResponse
+    inherit HttpResponse<GroupsGetGroupMembersNextResponse>
 
 type [<AllowNullLiteral>] GroupsGetGroupMembersResponse =
     inherit DirectoryObjectListResult
-    inherit HttpResponse
+    inherit HttpResponse<GroupsGetGroupMembersResponse>
 
 type [<AllowNullLiteral>] GroupsGetMemberGroupsResponse =
     inherit GroupGetMemberGroupsResult
-    inherit HttpResponse
+    inherit HttpResponse<GroupsGetMemberGroupsResponse>
 
 type [<AllowNullLiteral>] GroupsGetResponse =
     inherit ADGroup
-    inherit HttpResponse
+    inherit HttpResponse<GroupsGetResponse>
 
 type [<AllowNullLiteral>] GroupsIsMemberOfResponse =
     inherit CheckGroupMembershipResult
-    inherit HttpResponse
+    inherit HttpResponse<GroupsIsMemberOfResponse>
 
 type [<AllowNullLiteral>] GroupsListNextResponse =
     inherit GroupListResult
-    inherit HttpResponse
+    inherit HttpResponse<GroupsListNextResponse>
 
 /// Optional Parameters.
 type [<AllowNullLiteral>] GroupsListOptionalParams =
@@ -1152,7 +1162,7 @@ type [<AllowNullLiteral>] OAuth2PermissionGrantCreateResponse =
 
 type [<AllowNullLiteral>] OAuth2PermissionGrantListNextResponse =
     inherit OAuth2PermissionGrantListResult
-    inherit HttpResponse
+    inherit HttpResponse<OAuth2PermissionGrantListNextResponse>
 
 /// Optional Parameters.
 type [<AllowNullLiteral>] OAuth2PermissionGrantListOptionalParams =
@@ -1162,7 +1172,7 @@ type [<AllowNullLiteral>] OAuth2PermissionGrantListOptionalParams =
 
 type [<AllowNullLiteral>] OAuth2PermissionGrantListResponse =
     inherit OAuth2PermissionGrantListResult
-    inherit HttpResponse
+    inherit HttpResponse<OAuth2PermissionGrantListResponse>
 
 type [<AllowNullLiteral>] OAuth2PermissionGrantListResult =
     inherit Array<OAuth2PermissionGrant>
@@ -1251,11 +1261,11 @@ type [<AllowNullLiteral>] ObjectsStatic =
 
 type [<AllowNullLiteral>] ObjectsGetObjectsByObjectIdsNextResponse =
     inherit DirectoryObjectListResult
-    inherit HttpResponse
+    inherit HttpResponse<ObjectsGetObjectsByObjectIdsNextResponse>
 
 type [<AllowNullLiteral>] ObjectsGetObjectsByObjectIdsResponse =
     inherit DirectoryObjectListResult
-    inherit HttpResponse
+    inherit HttpResponse<ObjectsGetObjectsByObjectIdsResponse>
 
 /// Specifying the claims to be included in a token.
 type [<AllowNullLiteral>] OptionalClaim =
@@ -1601,19 +1611,19 @@ type [<AllowNullLiteral>] ServicePrincipalsStatic =
 
 type [<AllowNullLiteral>] ServicePrincipalsCreateResponse =
     inherit ServicePrincipal
-    inherit HttpResponse
+    inherit HttpResponse<ServicePrincipalsCreateResponse>
 
 type [<AllowNullLiteral>] ServicePrincipalsGetResponse =
     inherit ServicePrincipal
-    inherit HttpResponse
+    inherit HttpResponse<ServicePrincipalsGetResponse>
 
 type [<AllowNullLiteral>] ServicePrincipalsListKeyCredentialsResponse =
     inherit KeyCredentialListResult
-    inherit HttpResponse
+    inherit HttpResponse<ServicePrincipalsListKeyCredentialsResponse>
 
 type [<AllowNullLiteral>] ServicePrincipalsListNextResponse =
     inherit ServicePrincipalListResult
-    inherit HttpResponse
+    inherit HttpResponse<ServicePrincipalsListNextResponse>
 
 /// Optional Parameters.
 type [<AllowNullLiteral>] ServicePrincipalsListOptionalParams =
@@ -1623,19 +1633,19 @@ type [<AllowNullLiteral>] ServicePrincipalsListOptionalParams =
 
 type [<AllowNullLiteral>] ServicePrincipalsListOwnersNextResponse =
     inherit DirectoryObjectListResult
-    inherit HttpResponse
+    inherit HttpResponse<ServicePrincipalsListOwnersNextResponse>
 
 type [<AllowNullLiteral>] ServicePrincipalsListOwnersResponse =
     inherit DirectoryObjectListResult
-    inherit HttpResponse
+    inherit HttpResponse<ServicePrincipalsListOwnersResponse>
 
 type [<AllowNullLiteral>] ServicePrincipalsListPasswordCredentialsResponse =
     inherit PasswordCredentialListResult
-    inherit HttpResponse
+    inherit HttpResponse<ServicePrincipalsListPasswordCredentialsResponse>
 
 type [<AllowNullLiteral>] ServicePrincipalsListResponse =
     inherit ServicePrincipalListResult
-    inherit HttpResponse
+    inherit HttpResponse<ServicePrincipalsListResponse>
 
 /// Request parameters for update an existing service principal.
 type [<AllowNullLiteral>] ServicePrincipalUpdateParameters =
@@ -1679,15 +1689,15 @@ type [<AllowNullLiteral>] SignedInUserStatic =
 
 type [<AllowNullLiteral>] SignedInUserGetResponse =
     inherit User
-    inherit HttpResponse
+    inherit HttpResponse<SignedInUserGetResponse>
 
 type [<AllowNullLiteral>] SignedInUserListOwnedObjectsNextResponse =
     inherit DirectoryObjectListResult
-    inherit HttpResponse
+    inherit HttpResponse<SignedInUserListOwnedObjectsNextResponse>
 
 type [<AllowNullLiteral>] SignedInUserListOwnedObjectsResponse =
     inherit DirectoryObjectListResult
-    inherit HttpResponse
+    inherit HttpResponse<SignedInUserListOwnedObjectsResponse>
 
 /// Contains information about a sign-in name of a local account user in an Azure Active Directory
 /// B2C tenant.
@@ -1883,19 +1893,19 @@ type [<AllowNullLiteral>] UsersStatic =
 
 type [<AllowNullLiteral>] UsersCreateResponse =
     inherit User
-    inherit HttpResponse
+    inherit HttpResponse<UsersCreateResponse>
 
 type [<AllowNullLiteral>] UsersGetMemberGroupsResponse =
     inherit UserGetMemberGroupsResult
-    inherit HttpResponse
+    inherit HttpResponse<UsersGetMemberGroupsResponse>
 
 type [<AllowNullLiteral>] UsersGetResponse =
     inherit User
-    inherit HttpResponse
+    inherit HttpResponse<UsersGetResponse>
 
 type [<AllowNullLiteral>] UsersListNextResponse =
     inherit UserListResult
-    inherit HttpResponse
+    inherit HttpResponse<UsersListNextResponse>
 
 /// Optional Parameters.
 type [<AllowNullLiteral>] UsersListOptionalParams =
@@ -1905,7 +1915,7 @@ type [<AllowNullLiteral>] UsersListOptionalParams =
 
 type [<AllowNullLiteral>] UsersListResponse =
     inherit UserListResult
-    inherit HttpResponse
+    inherit HttpResponse<UsersListResponse>
 
 type [<StringEnum>] [<RequireQualifiedAccess>] UserType =
     | [<CompiledName "Member">] Member
