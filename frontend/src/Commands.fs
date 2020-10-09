@@ -33,7 +33,7 @@ module Msal =
                                                             scopes = authParams.scopes |}
                     onResponse (Some r)
                 with _ ->
-                    authParams.redirectStartPage <- !!window.location.hash
+                    authParams.state <- !!window.location.hash // get back the page we're on via redirect response state
                     do! client.loginRedirect authParams
             }
             p.catch(unbox >> failure >> dispatch) |> ignore

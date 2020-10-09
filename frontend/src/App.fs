@@ -19,7 +19,8 @@ let update (cmd: Cmd) (msg: Msg) (model: Model) =
     | _, LoggedIn r ->
         Authenticated { route = Routes.Home
                         user = None },
-        cmd.getSignedInUser Loaded Failed
+        Cmd.batch [ cmd.getSignedInUser Loaded Failed
+                    match r.state with Some state when state <> window.location.hash -> Navigation.newUrl state | _ -> () ]
     | Authenticated state, Loaded r ->
         Authenticated { state with user = Some (upcast r) }, Cmd.none
     | _, Failed e ->

@@ -8,9 +8,9 @@ open Fulma
 open Fable.FontAwesome
 
 module NavBar =
-    let view mkRoute =
+    let view dispatch =
         Navbar.navbar [ ]
-            [ Navbar.End.div [] [ Navbar.Item.div [] [ Button.button [ ] [ str "Logout" ] ] ] ]
+            [ Navbar.End.div [] [ Navbar.Item.div [] [ Button.button [ Button.OnClick (fun _ -> dispatch LogOut) ] [ str "Logout" ] ] ] ]
 
 let root (model: Model) dispatch =
     let onClick msg = OnClick <| fun _ -> dispatch msg
@@ -18,7 +18,7 @@ let root (model: Model) dispatch =
     match model with
     | Authenticated state ->
         Hero.hero [ Hero.IsFullHeight ] [
-            Hero.head [] [ NavBar.view (GoTo >> dispatch) ]
+            Hero.head [] [ NavBar.view dispatch ]
             Hero.body [] [
                 Container.container [] [
                     Columns.columns [ Columns.CustomClass "has-text-centered" ] [
