@@ -1,8 +1,8 @@
 ## Fable bindings for Azure SDKs
 
 `ts2fable` can't currently handle the exports structure most MS libraries use and the generated bindings require a bit of tweaking, so the process is:
-- extract all the APIs - single file per API
-- generate the bindings on per-API basis as needed
+- `yarn extract-all` - extract all the APIs - single file per API
+- `yarn gen-graph` - generate the bindings on per-API basis as needed
 - tweak the generated bindings
 
 Commit only the bindings.
