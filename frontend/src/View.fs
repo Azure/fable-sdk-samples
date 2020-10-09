@@ -30,4 +30,4 @@ let root (model: Model) dispatch =
                                       ]
             ] ] ] ]
 
-    | Unauthenticated -> div [] []
+    | Unauthenticated _ -> div [] []

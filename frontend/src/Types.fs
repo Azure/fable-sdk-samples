@@ -6,7 +6,7 @@ type AuthenticatedState =
 
 type Model =
   | Authenticated of AuthenticatedState
-  | Unauthenticated
+  | Unauthenticated of Routes.Route
 
 type Msg = 
   | Failed of exn

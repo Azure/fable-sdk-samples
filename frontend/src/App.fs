@@ -7,15 +7,19 @@ open Types
     
 let init (account, cmd: Cmd) route : Model*Cmd<Msg> =
     match route, account with
-    | Some Routes.Home, Some r ->
-        Unauthenticated, Cmd.ofMsg (LoggedIn r)
-    | _ -> Unauthenticated, cmd.login LoggedIn Failed
+    | Some r, Some a ->
+        Unauthenticated r, Cmd.ofMsg (LoggedIn a)
+    | Some r, None ->
+        Unauthenticated r, cmd.login LoggedIn Failed
+    | _ -> Unauthenticated Routes.Home, cmd.login LoggedIn Failed
 
 
 let update (cmd: Cmd) (msg: Msg) (model: Model) =
     match model, msg with
-    | _, LogIn ->
-        Unauthenticated, cmd.login LoggedIn Failed
+    | Unauthenticated route, LogIn ->
+        Unauthenticated route, cmd.login LoggedIn Failed
+    | Authenticated state, LogIn ->
+        Unauthenticated state.route, cmd.login LoggedIn Failed
     | _, LoggedIn r ->
         Authenticated { route = Routes.Home
                         user = None },
@@ -27,8 +31,9 @@ let update (cmd: Cmd) (msg: Msg) (model: Model) =
         console.error e
         model, Cmd.none
     | _, LogOut ->
-        Unauthenticated, Cmd.batch [ cmd.logout Failed
-                                     Navigation.newUrl (Routes.toAddress Routes.Guest)]
+        Unauthenticated Routes.Guest, 
+        Cmd.batch [ cmd.logout Failed
+                    Navigation.newUrl (Routes.toAddress Routes.Guest)]
     | _ -> model, Cmd.none                   
 
 
@@ -36,6 +41,8 @@ let urlUpdate (result: Option<Routes.Route>) model =
     match result, model with
     | Some page, Authenticated state ->
         Authenticated {state with route = page}, []
+    | Some route, Unauthenticated _ ->
+        Unauthenticated route, []
     | _ ->
         model, Navigation.modifyUrl (Routes.toAddress Routes.Home) // no matching route - go home
 
