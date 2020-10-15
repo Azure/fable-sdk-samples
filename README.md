@@ -1,4 +1,4 @@
-# Fable Azure SDKs
+# Azure SDKs bindings generation and samples for [Fable compiler](https://fable.io)
 
 Sample Fable bindings generation for Azure SDKs and a sample [elmish](https://elmish.github.io/) application that uses them.
 
